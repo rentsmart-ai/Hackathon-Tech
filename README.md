@@ -16,7 +16,6 @@ Este proyecto desarrolla un sistema automatizado para la extracción, almacenami
 - Python 3.x
 - Librerías: `requests`, `beautifulsoup4`, `pandas`, `sqlalchemy`, `psycopg2`, `streamlit`, `geopandas`, `folium`
 - PostgreSQL para la base de datos
-- 
 ## Adicionales
 - Figma: Boceto - https://www.figma.com/design/iwzarAZfQ9b5lWXsDLdZfe/RentSmart?node-id=0-1&t=dOCoJbPQ3BmL35Xp-1
 - Visual Studio Code: Python
