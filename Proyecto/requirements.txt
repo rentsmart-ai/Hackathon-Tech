@@ -8,4 +8,4 @@ sqlalchemy==2.0.21
 requests==2.31.0
 leafmap==0.20.0
 matplotlib==3.8.0
-scikit-learn
+scikit-learn==1.5.2
