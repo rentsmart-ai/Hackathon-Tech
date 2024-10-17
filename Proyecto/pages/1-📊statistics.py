@@ -28,7 +28,14 @@ st.write("---")
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
 # Accediendo a las credenciales desde Streamlit Secrets
 
-conn = st.connection("postgresql", type="sql")
+conn = psycopg2.connect(
+    dialect = "postgresql",
+    host = "localhost",
+    port = "5432",
+    database = "postgres1",
+    username = "postgres",
+    password = "Master2024&"
+)
 #_____________________________________FUNCION CACHÉ_________________________________________#
 @st.cache_data
 def load_data(query):
