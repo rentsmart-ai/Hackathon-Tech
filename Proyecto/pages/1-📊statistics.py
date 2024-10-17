@@ -27,14 +27,13 @@ st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
 # Accediendo a las credenciales desde Streamlit Secrets
-dialect = st.secrets["connections"]["postgresql"]["dialect"]
-host = st.secrets["connections"]["postgresql"]["host"]
-port = st.secrets["connections"]["postgresql"]["port"]
-database = st.secrets["connections"]["postgresql"]["database"]
-username = st.secrets["connections"]["postgresql"]["username"]
-password = st.secrets["connections"]["postgresql"]["password"]
+dialect = st.secrets["connections"]["dialect"]
+host = st.secrets["connections"]["host"]
+port = st.secrets["connections"]["port"]
+database = st.secrets["connections"]["database"]
+username = st.secrets["connections"]["username"]
+password = st.secrets["connections"]["password"]
 
-conn = st.connection("postgresql", type="sql")
 try:
     # Conectar a PostgreSQL
     conn = psycopg2.connect(
