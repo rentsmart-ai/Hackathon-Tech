@@ -27,10 +27,10 @@ st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
 # Cargar las credenciales desde Streamlit secrets
-db_config = st.secrets["connections"]["postgresql"]
+conn= st.secrets["connections"]["postgresql"]
 
 # Crear la cadena de conexión
-connection_string = f"{db_config['dialect']}://{db_config['username']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}"
+connection_string = f"{conn['dialect']}://{conn['username']}:{conn['password']}@{conn['host']}:{conn['port']}/{conn['database']}"
 
 # Crear un motor de conexión
 engine = create_engine(connection_string)
