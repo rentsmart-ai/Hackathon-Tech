@@ -403,7 +403,7 @@ st.write("---")
 #___________________________________________Prediccion de valor del predio___________________________________________________#
 
 # Cargar el modelo optimizado (Random Forest con mejores hiperparámetros)
-modelo_optimizado = joblib.load('modelo_random_forest.pkl')
+modelo_optimizado = joblib.load('Proyecto/modelo_random_forest.pkl')
 
 # Título de la aplicación
 with st.container():
