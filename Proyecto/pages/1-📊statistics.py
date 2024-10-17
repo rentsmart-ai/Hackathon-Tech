@@ -11,6 +11,7 @@ import joblib
 import numpy as np
 import psycopg2
 from psycopg2 import OperationalError
+import sqlalchemy
 #_____________________________________CONFIGURACION INICIAL__________________________________________#
 st.set_page_config(
     page_title="Home",
