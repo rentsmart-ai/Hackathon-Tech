@@ -50,19 +50,19 @@ with col[0]:
     st.image('Proyecto/img/logo.svg', width=100)  
 
 with col[1]:
-    st.image('img/banner2.jfif', width=70) 
+    st.image('Proyecto/img/banner2.jfif', width=70) 
 
 with col[2]:
 
-    st.image('img/logomano.png', width=70)  
+    st.image('Proyecto/img/logomano.png', width=70)  
 
 with col[3]:
 
-    st.image('img/hackathon.png', width=70)  
+    st.image('Proyecto/img/hackathon.png', width=70)  
     
 with col[4]:
 
-    st.image('img/p4s.jfif', width=70) 
+    st.image('Proyecto/img/p4s.jfif', width=70) 
 
 st.write(" ")
 # Footer
