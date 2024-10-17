@@ -25,6 +25,12 @@ st.write(
 st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
+# Accediendo a las credenciales desde Streamlit Secrets
+database = st.secrets[connections.postgresql]["database"]
+username = st.secrets[connections.postgresql]["username "]
+password = st.secrets[connections.postgresql]["password"]
+host = st.secrets[connections.postgresql]["host"]
+port = st.secrets[connections.postgresql]["port"]
 
 conn = st.connection("postgresql", type="sql")
 
