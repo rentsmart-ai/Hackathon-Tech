@@ -34,6 +34,7 @@ database = st.secrets["connections"]["postgresql"]["database"]
 username = st.secrets["connections"]["postgresql"]["username"]
 password = st.secrets["connections"]["postgresql"]["password"]
 
+conn = st.connection("postgresql", type="sql")
 try:
     # Conectar a PostgreSQL
     conn = psycopg2.connect(
