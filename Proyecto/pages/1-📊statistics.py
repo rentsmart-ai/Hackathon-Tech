@@ -304,7 +304,7 @@ with st.container():
 )
   
 # Ruta del archivo Excel
-file_path = "data/general.xlsx"  
+file_path = "Proyecto/data/general.xlsx"  
 df2 = pd.read_excel(file_path)
 
 # Sidebar - Selección de barrio
