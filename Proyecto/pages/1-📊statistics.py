@@ -26,8 +26,20 @@ st.write(
 st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
+# Cargar las credenciales desde Streamlit secrets
+db_config = st.secrets["connections"]["postgresql"]
 
-conn = st.connection("postgres", type="sql")
+# Crear la cadena de conexión
+connection_string = f"{db_config['dialect']}://{db_config['username']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}"
+
+# Crear un motor de conexión
+engine = create_engine(connection_string)
+
+# Función para realizar una consulta a la base de datos
+def query_database(query):
+    with engine.connect() as connection:
+        result = connection.execute(query)
+        return result.fetchall()
 
 #_____________________________________FUNCION CACHÉ_________________________________________#
 @st.cache_data
