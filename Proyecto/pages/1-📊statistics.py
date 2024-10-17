@@ -47,7 +47,6 @@ def load_data(query):
     return conn.query(query)
 df_selected = pd.DataFrame()
 #_____________________________________FUNCION QUERY_________________________________________#
-#_____________________________________FUNCION QUERY_________________________________________#
 if conn:
     try:
         # Perform query
@@ -93,7 +92,7 @@ def local_css(file_name):
 # Llamar el archivo CSS
 local_css("Proyecto/style/styleF.css")
 #______________________________________SIDEBAR______________________________________#
-
+df = pd.DataFrame()
 with st.sidebar:
     st.title('Filtros')
 
