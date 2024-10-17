@@ -51,8 +51,8 @@ if conn:
     try:
         # Perform query
         df = conn.query('SELECT * FROM locales')
-        
-        df['Valor_metro'] = df['Valor'] / df['Metros']
+        if df:  
+            df['Valor_metro'] = df['Valor'] / df['Metros']
         
 #_____________________________________DATAFRAME_________________________________________#
         with st.expander("Vista Previa de Datos", expanded=False):
