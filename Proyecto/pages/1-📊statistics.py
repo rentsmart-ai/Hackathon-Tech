@@ -318,7 +318,7 @@ col = st.columns((0.3, 0.3, 0.1, 0.3, 0.1), gap='small')
 
 with col[0]:
     total = df_selected['Total'].values[0] if not df_selected.empty else 0
-    st.image("img/personas.png", caption= "Población", use_column_width = 'always')
+    st.image("Proyecto/img/personas.png", caption= "Población", use_column_width = 'always')
     st.markdown(f'''
                 <div class="card-dos" style="max-width: 10rem, text-align: center;">
                     <div class="card-body">
@@ -329,7 +329,7 @@ with col[0]:
 
 with col[1]:
     total_hombres = df_selected['Hombres'].values[0] if not df_selected.empty else 0
-    st.image("img/hombre.png", caption= "Hombres", use_column_width = 'always')
+    st.image("Proyecto/img/hombre.png", caption= "Hombres", use_column_width = 'always')
     st.markdown(f'''
                 <div class="card-dos" style="max-width: 18rem, text-align: center;">
                     <div class="card-body">
@@ -361,7 +361,7 @@ with col[2]:
 
 with col[3]:
     total_mujeres = df_selected['Mujeres'].values[0] if not df_selected.empty else 0
-    st.image("img/mujer.png", caption= "Mujeres", use_column_width = 'always')
+    st.image("Proyecto/img/mujer.png", caption= "Mujeres", use_column_width = 'always')
     st.markdown(f'''
                 <div class="card-dos" style="max-width: 18rem, text-align: center;">
                     <div class="card-body">
