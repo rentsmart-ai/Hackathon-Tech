@@ -423,7 +423,7 @@ st.sidebar.header("Ingresa los datos de la propiedad")
 def obtener_datos_usuario():
 
     metros = st.sidebar.number_input("Metros cuadrados", min_value=20, max_value=1000, value=100)
-    banos = st.sidebar.slider("Número de baños", min_value=1, max_value=10, value=2)
+    banos = st.sidebar.slider("Número de baños", min_value=0, max_value=10, value=2)
 
     # Crear un diccionario con los datos
     datos_propiedad = {
