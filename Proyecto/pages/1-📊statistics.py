@@ -341,12 +341,12 @@ with col[1]:
                 ''', unsafe_allow_html=True)
 
 with col[2]:
-    Pr_Infancia = df_selected['Primera_Infancia6'].values[0] if not df_selected.empty else 0
-    Infancia = df_selected['Infancia4'].values[0] if not df_selected.empty else 0
+    Pr_Infancia = df_selected['Primera_Infancia1'].values[0] if not df_selected.empty else 0
+    Infancia = df_selected['Infancia1'].values[0] if not df_selected.empty else 0
     Adolescencia = df_selected['Adolescencia1'].values[0] if not df_selected.empty else 0
-    Juventud= df_selected['Juventud5'].values[0] if not df_selected.empty else 0
+    Juventud= df_selected['Juventud1'].values[0] if not df_selected.empty else 0
     Adultez = df_selected['Adulto1'].values[0] if not df_selected.empty else 0
-    Adulto_mayor = df_selected['Adulto_mayor3'].values[0] if not df_selected.empty else 0
+    Adulto_mayor = df_selected['Adulto_mayor1'].values[0] if not df_selected.empty else 0
     
     @st.dialog("Tipo de Población", width = "small")
     def mostrar_etapas():
