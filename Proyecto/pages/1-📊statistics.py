@@ -27,7 +27,7 @@ st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
 # Cargar las credenciales desde Streamlit secrets
-conn= st.secrets["connections"]["postgresql"]
+conn= st.secrets["query"]
 
 # Crear la cadena de conexión
 connection_string = f"{conn['dialect']}://{conn['username']}:{conn['password']}@{conn['host']}:{conn['port']}/{conn['database']}"
