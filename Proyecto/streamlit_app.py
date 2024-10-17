@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 
-st.logo("https://github.com/rentsmart-ai/Hackathon-Tech/blob/9401ac155018e030d90d4ba187be07bcc349dd04/Proyecto/img/local.png")
+st.logo('Proyecto/img/local.png')
 
 # Función animación
 def load_lottieurl(url):
@@ -47,7 +47,7 @@ st.write(
 col = st.columns((1.5, 1.5, 1.5, 1.5, 1.5), gap='large')
 
 with col[0]:
-    st.image('img/logo.svg', width=100)  
+    st.image('Proyecto/img/logo.svg', width=100)  
 
 with col[1]:
     st.image('img/banner2.jfif', width=70) 
