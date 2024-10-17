@@ -28,10 +28,7 @@ st.write("---")
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
 # Accediendo a las credenciales desde Streamlit Secrets
 
-def connection():
-    return psycopg2.connect(**st.secrets["postgres"])
-conn = connection()
-
+conn = st.connection("postgresql", type="sql")
 #_____________________________________FUNCION CACHÉ_________________________________________#
 @st.cache_data
 def load_data(query):
