@@ -10,6 +10,7 @@ import json
 import joblib
 import numpy as np
 import psycopg2
+from psycopg2 import OperationalError
 #_____________________________________CONFIGURACION INICIAL__________________________________________#
 st.set_page_config(
     page_title="Home",
@@ -43,10 +44,15 @@ try:
         port=port
     )
     st.success("Conexión exitosa a la base de datos.")
-except OperationalError as e:
+except psycopg2.OperationalError as e:
     st.error(f"Error al conectar a la base de datos: {e}")
 except Exception as e:
     st.error(f"Ocurrió un error inesperado: {e}")
+
+# Cerrar la conexión
+if 'conn' in locals() and conn:
+    conn.close()
+    st.info("Conexión a la base de datos cerrada.")
 
 #_____________________________________FUNCION CACHÉ_________________________________________#
 @st.cache_data
