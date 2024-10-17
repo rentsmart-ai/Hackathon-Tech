@@ -45,7 +45,7 @@ def query_database(query):
 @st.cache_data
 def load_data(query):
     return conn.query(query)
-df = pd.DataFrame()
+df_selected = pd.DataFrame()
 #_____________________________________FUNCION QUERY_________________________________________#
 #_____________________________________FUNCION QUERY_________________________________________#
 if conn:
