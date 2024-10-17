@@ -21,7 +21,7 @@ def show_contact_form():
 # Header
 col1, col2 = st.columns(2, gap="small", vertical_alignment="center")
 with col1:
-    st.image("./img/logomano.png", width=230)
+    st.image("Proyecto/img/logomano.png", width=230)
 with col2:
     st.title("¿Quiénes Somos?", anchor=False)
     st.write(
