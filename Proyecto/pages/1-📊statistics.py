@@ -34,17 +34,7 @@ username = st.secrets["connections"]["postgresql"]["username"]
 password = st.secrets["connections"]["postgresql"]["password"]
 
 # Conectar a PostgreSQL
-try:
-    conn = psycopg2.connect(
-        dbname=database,
-        user=username,
-        password=password,
-        host=host,
-        port=port
-    )
-    # Realiza las operaciones necesarias con la conexión
-except Exception as e:
-    st.error(f"Error al conectar a la base de datos: {e}")
+conn = st.connection("postgresql", type="sql")
 
 #_____________________________________FUNCION CACHÉ_________________________________________#
 @st.cache_data
