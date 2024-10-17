@@ -45,14 +45,15 @@ def query_database(query):
 @st.cache_data
 def load_data(query):
     return conn.query(query)
-
+df = pd.DataFrame()
+#_____________________________________FUNCION QUERY_________________________________________#
 #_____________________________________FUNCION QUERY_________________________________________#
 if conn:
     try:
         # Perform query
         df = conn.query('SELECT * FROM locales')
-        if df:  
-            df['Valor_metro'] = df['Valor'] / df['Metros']
+        
+        df['Valor_metro'] = df['Valor'] / df['Metros']
         
 #_____________________________________DATAFRAME_________________________________________#
         with st.expander("Vista Previa de Datos", expanded=False):
