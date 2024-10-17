@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 
-st.image("img/local.png")
+st.logo("https://github.com/rentsmart-ai/Hackathon-Tech/blob/9401ac155018e030d90d4ba187be07bcc349dd04/Proyecto/img/local.png")
 
 # Función animación
 def load_lottieurl(url):
