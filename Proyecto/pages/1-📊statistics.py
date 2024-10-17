@@ -32,7 +32,7 @@ conn = psycopg2.connect(
     dbname="postgres1",       
     user="postgres",         
     password="Master2024&",   
-    host="localhost",         
+    host="127.0.0.1",         
     port="5432"               
 )
 #_____________________________________FUNCION CACHÉ_________________________________________#
