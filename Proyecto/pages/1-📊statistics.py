@@ -304,8 +304,8 @@ with st.container():
 )
   
 # Ruta del archivo Excel
-file_path = "Proyecto/data/general.xlsx"  
-df2 = pd.read_excel(file_path)
+file_path = "Proyecto/data/general.csv"  
+df2 = pd.read_csv(file_path)
 
 # Sidebar - Selección de barrio
 selected_barrio = st.sidebar.selectbox('Selecciona un barrio:', df2['Barrio'].unique())
