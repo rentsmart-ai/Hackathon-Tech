@@ -27,7 +27,7 @@ st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
 # Accediendo a las credenciales desde Streamlit Secrets
-@st.experimental_singleton
+
 def connection():
     return psycopg2.connect(**st.secrets["postgres"])
 conn = connection()
