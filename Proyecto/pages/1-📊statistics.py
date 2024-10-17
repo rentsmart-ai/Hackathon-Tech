@@ -34,6 +34,10 @@ conn = st.connection("postgresql", type="sql")
 
 #_____________________________________FUNCION CACHÉ_________________________________________#
 
+@st.cache_data
+def load_data(query):
+    return conn.query(query)
+    
 df_selected = pd.DataFrame()
 #_____________________________________FUNCION QUERY_________________________________________#
 if conn:
