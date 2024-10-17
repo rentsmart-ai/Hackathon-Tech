@@ -27,19 +27,20 @@ st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
 # Cargar las credenciales desde Streamlit secrets
-conn= st.secrets['postgres']
+conn_params = st.secrets["postgres"]
 
-# Crear la cadena de conexión
-connection_string = f"{conn['dialect']}://{conn['username']}:{conn['password']}@{conn['host']}:{conn['port']}/{conn['database']}"
+# Crear la cadena de conexión usando los parámetros del archivo secrets.toml
+connection_string = f"{conn_params['dialect']}://{conn_params['username']}:{conn_params['password']}@{conn_params['host']}:{conn_params['port']}/{conn_params['database']}"
 
-# Crear un motor de conexión
-engine = create_engine(connection_string)
+# Crear el motor de conexión
+engine = sqlalchemy.create_engine(connection_string)
 
-# Función para realizar una consulta a la base de datos
-def query_database(query):
-    with engine.connect() as connection:
-        result = connection.execute(query)
-        return result.fetchall()
+# Intentar conectarse a la base de datos
+try:
+    connection = engine.connect()
+    st.success("Conexión exitosa a la base de datos")
+except Exception as e:
+    st.error(f"Error al conectar a la base de datos: {e}")
 
 #_____________________________________FUNCION CACHÉ_________________________________________#
 @st.cache_data
