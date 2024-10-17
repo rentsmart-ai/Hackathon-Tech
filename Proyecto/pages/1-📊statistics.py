@@ -32,8 +32,8 @@ conn = psycopg2.connect(
     dbname="postgres1",       
     user="postgres",         
     password="Master2024&",   
-    host="127.0.0.1",         
-    port="5433"               
+    host="localhost",         
+    port="5432"               
 )
 #_____________________________________FUNCION CACHÉ_________________________________________#
 @st.cache_data
