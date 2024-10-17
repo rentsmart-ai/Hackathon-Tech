@@ -35,6 +35,17 @@ conn = psycopg2.connect(
     host="localhost",         
     port="5432"               
 )
+st.markdown(
+"""
+<style>
+.css-nps9tx, .e1m3hlzs0, .css-1p0bytv, .e1m3hlzs1 {
+   visibility: collapse;
+   height: 0px;
+}
+</style>
+""",
+unsafe_allow_html=True
+)
 #_____________________________________FUNCION CACHÉ_________________________________________#
 @st.cache_data
 def load_data(query):
