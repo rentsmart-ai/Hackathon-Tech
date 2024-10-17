@@ -30,18 +30,7 @@ st.write("---")
 # Cargar las credenciales desde Streamlit secrets
 conn = st.connection("postgresql", type="sql")
 
-# Crear la cadena de conexión usando los parámetros del archivo secrets.toml
-connection_string = f"{conn['dialect']}://{conn['username']}:{conn['password']}@{conn['host']}:{conn['port']}/{conn['database']}"
 
-# Crear el motor de conexión
-engine = sqlalchemy.create_engine(connection_string)
-
-# Intentar conectarse a la base de datos
-try:
-    connection = engine.connect()
-    st.success("Conexión exitosa a la base de datos")
-except Exception as e:
-    st.error(f"Error al conectar a la base de datos: {e}")
 
 #_____________________________________FUNCION CACHÉ_________________________________________#
 
