@@ -28,10 +28,10 @@ st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
 # Cargar las credenciales desde Streamlit secrets
-conn_params = st.secrets["postgres"]
+conn = st.secrets["postgres"]
 
 # Crear la cadena de conexión usando los parámetros del archivo secrets.toml
-connection_string = f"{conn_params['dialect']}://{conn_params['username']}:{conn_params['password']}@{conn_params['host']}:{conn_params['port']}/{conn_params['database']}"
+connection_string = f"{conn['dialect']}://{conn['username']}:{conn['password']}@{conn['host']}:{conn['port']}/{conn['database']}"
 
 # Crear el motor de conexión
 engine = sqlalchemy.create_engine(connection_string)
