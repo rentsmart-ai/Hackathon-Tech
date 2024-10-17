@@ -27,25 +27,10 @@ st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
 # Accediendo a las credenciales desde Streamlit Secrets
-dialect = st.secrets["connections"]["dialect"]
-host = st.secrets["connections"]["host"]
-port = st.secrets["connections"]["port"]
-database = st.secrets["connections"]["database"]
-username = st.secrets["connections"]["username"]
-password = st.secrets["connections"]["password"]
-
-try:
-    # Conectar a PostgreSQL
-    conn = psycopg2.connect(
-        dbname=database,
-        user=username,
-        password=password,
-        host=host,
-        port=port
-    )
-    st.success("Conexión exitosa a la base de datos.")
-except Exception as e:
-    st.error(f"Error al conectar a la base de datos: {e}")
+@st.experimental_singleton
+def connection():
+    return psycopg2.connect(**st.secrets["postgres"])
+conn = connection()
 
 #_____________________________________FUNCION CACHÉ_________________________________________#
 @st.cache_data
