@@ -9,4 +9,4 @@ requests==2.31.0
 leafmap==0.20.0
 matplotlib==3.8.0
 scikit-learn==1.5.2
-Pillow==10.4.0
+Pillow==9.5.0
