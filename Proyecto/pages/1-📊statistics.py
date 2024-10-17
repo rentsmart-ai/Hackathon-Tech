@@ -9,6 +9,7 @@ import requests
 import json
 import joblib
 import numpy as np
+import psycopg2
 #_____________________________________CONFIGURACION INICIAL__________________________________________#
 st.set_page_config(
     page_title="Home",
