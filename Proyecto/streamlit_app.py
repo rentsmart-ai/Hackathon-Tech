@@ -9,8 +9,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 
-
-st.logo("img/local.png")
+st.image("img/local.png")
 
 # Función animación
 def load_lottieurl(url):
