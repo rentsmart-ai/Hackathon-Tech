@@ -24,7 +24,7 @@ st.write(
 )
 st.write("---")
 
-_____________________________________CONEXION BASE DE DATOS_________________________________________#
+#_____________________________________CONEXION BASE DE DATOS_________________________________________#
 
 conn = st.connection("postgresql", type="sql")
 
