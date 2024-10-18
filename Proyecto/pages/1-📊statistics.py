@@ -39,9 +39,8 @@ if conn:
         # Perform query
         df = conn.query('SELECT * FROM locales')
         
-        df_selected = df[df['Metros'] > 0]  # Filtrar las filas donde 'Metros' es mayor que 0
-        valor_por_metro = (df_selected['Valor'] / df_selected['Metros']).mean() if not df_selected.empty else None
-
+        df['Valor_metro'] = df['Valor'] / df['Metros']
+        
 #_____________________________________DATAFRAME_________________________________________#
         with st.expander("Vista Previa de Datos", expanded=False):
         # Aplicar formato a los datos para la visualización
@@ -78,9 +77,9 @@ def local_css(file_name):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Llamar el archivo CSS
-local_css("Proyecto/style/styleF.css")
+local_css("style/styleF.css")
 #______________________________________SIDEBAR______________________________________#
-df = pd.DataFrame()
+
 with st.sidebar:
     st.title('Filtros')
 
