@@ -24,11 +24,15 @@ st.write(
 )
 st.write("---")
 
-#_____________________________________CONEXION BASE DE DATOS_________________________________________#
-# Cargar las credenciales desde Streamlit secrets
+_____________________________________CONEXION BASE DE DATOS_________________________________________#
+
 conn = st.connection("postgresql", type="sql")
 
-df_selected = pd.DataFrame()
+#_____________________________________FUNCION CACHÉ_________________________________________#
+@st.cache_data
+def load_data(query):
+    return conn.query(query)
+
 #_____________________________________FUNCION QUERY_________________________________________#
 if conn:
     try:
