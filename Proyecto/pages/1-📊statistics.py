@@ -39,7 +39,9 @@ if conn:
         # Perform query
         df = conn.query('SELECT * FROM locales')
         
-        valor_por_metro = (df['Valor'] / df['Metros']).mean() if not df_selected else df_selected
+        df_selected = df[df['Metros'] > 0]  # Filtrar las filas donde 'Metros' es mayor que 0
+        valor_por_metro = (df_selected['Valor'] / df_selected['Metros']).mean() if not df_selected.empty else None
+
 #_____________________________________DATAFRAME_________________________________________#
         with st.expander("Vista Previa de Datos", expanded=False):
         # Aplicar formato a los datos para la visualización
