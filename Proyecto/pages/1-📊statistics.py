@@ -138,7 +138,7 @@ with col2:
 
 with col3:
     # Tarjeta para Promedio de valor por metro
-    valor_por_metro = (df['Valor'] / df['Metros']).mean() if not df_selected.empty else 0
+    valor_por_metro = (df['Valor'] / df['Metros']).mean()
     valor_por_metro_redondeado = round(valor_por_metro, 2)  # Redondear a 2 decimales
     st.markdown(f'''
                 <div class="card-dos" style="max-width: 18rem, text-align: center;">
