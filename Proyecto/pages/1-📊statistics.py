@@ -76,7 +76,7 @@ def local_css(file_name):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Llamar el archivo CSS
-local_css("style/styleF.css")
+local_css("Proyecto/style/styleF.css")
 #______________________________________SIDEBAR______________________________________#
 
 with st.sidebar:
