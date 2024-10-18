@@ -9,7 +9,6 @@ import requests
 import json
 import joblib
 import numpy as np
-import sqlalchemy
 #_____________________________________CONFIGURACION INICIAL__________________________________________#
 st.set_page_config(
     page_title="Home",
@@ -25,7 +24,7 @@ st.write(
 st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
-df = pd.DataFrame() 
+df =pd.DataFrame()
 conn = st.connection("postgresql", type="sql")
 
 #_____________________________________FUNCION CACHÉ_________________________________________#
@@ -38,7 +37,7 @@ if conn:
     try:
         # Perform query
         df = conn.query('SELECT * FROM locales')
-
+        
         df['Valor_metro'] = df['Valor'] / df['Metros']
         
 #_____________________________________DATAFRAME_________________________________________#
@@ -77,7 +76,7 @@ def local_css(file_name):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Llamar el archivo CSS
-local_css("Proyecto/style/styleF.css")
+local_css("style/styleF.css")
 #______________________________________SIDEBAR______________________________________#
 
 with st.sidebar:
@@ -291,8 +290,8 @@ with st.container():
 )
   
 # Ruta del archivo Excel
-file_path = "Proyecto/data/general.csv"  
-df2 = pd.read_csv(file_path)
+file_path = "data/general.xlsx"  
+df2 = pd.read_excel(file_path)
 
 # Sidebar - Selección de barrio
 selected_barrio = st.sidebar.selectbox('Selecciona un barrio:', df2['Barrio'].unique())
@@ -305,7 +304,7 @@ col = st.columns((0.3, 0.3, 0.1, 0.3, 0.1), gap='small')
 
 with col[0]:
     total = df_selected['Total'].values[0] if not df_selected.empty else 0
-    st.image("Proyecto/img/personas.png", caption= "Población", use_column_width = 'always')
+    st.image("img/personas.png", caption= "Población", use_column_width = 'always')
     st.markdown(f'''
                 <div class="card-dos" style="max-width: 10rem, text-align: center;">
                     <div class="card-body">
@@ -316,7 +315,7 @@ with col[0]:
 
 with col[1]:
     total_hombres = df_selected['Hombres'].values[0] if not df_selected.empty else 0
-    st.image("Proyecto/img/hombre.png", caption= "Hombres", use_column_width = 'always')
+    st.image("img/hombre.png", caption= "Hombres", use_column_width = 'always')
     st.markdown(f'''
                 <div class="card-dos" style="max-width: 18rem, text-align: center;">
                     <div class="card-body">
@@ -326,12 +325,12 @@ with col[1]:
                 ''', unsafe_allow_html=True)
 
 with col[2]:
-    Pr_Infancia = df_selected['Primera_Infancia1'].values[0] if not df_selected.empty else 0
-    Infancia = df_selected['Infancia1'].values[0] if not df_selected.empty else 0
+    Pr_Infancia = df_selected['Primera_Infancia6'].values[0] if not df_selected.empty else 0
+    Infancia = df_selected['Infancia4'].values[0] if not df_selected.empty else 0
     Adolescencia = df_selected['Adolescencia1'].values[0] if not df_selected.empty else 0
-    Juventud= df_selected['Juventud1'].values[0] if not df_selected.empty else 0
+    Juventud= df_selected['Juventud5'].values[0] if not df_selected.empty else 0
     Adultez = df_selected['Adulto1'].values[0] if not df_selected.empty else 0
-    Adulto_mayor = df_selected['Adulto_mayor1'].values[0] if not df_selected.empty else 0
+    Adulto_mayor = df_selected['Adulto_mayor3'].values[0] if not df_selected.empty else 0
     
     @st.dialog("Tipo de Población", width = "small")
     def mostrar_etapas():
@@ -348,7 +347,7 @@ with col[2]:
 
 with col[3]:
     total_mujeres = df_selected['Mujeres'].values[0] if not df_selected.empty else 0
-    st.image("Proyecto/img/mujer.png", caption= "Mujeres", use_column_width = 'always')
+    st.image("img/mujer.png", caption= "Mujeres", use_column_width = 'always')
     st.markdown(f'''
                 <div class="card-dos" style="max-width: 18rem, text-align: center;">
                     <div class="card-body">
@@ -388,7 +387,7 @@ st.write("---")
 #___________________________________________Prediccion de valor del predio___________________________________________________#
 
 # Cargar el modelo optimizado (Random Forest con mejores hiperparámetros)
-modelo_optimizado = joblib.load('Proyecto/modelo_random_forest.pkl')
+modelo_optimizado = joblib.load('modelo_random_forest.pkl')
 
 # Título de la aplicación
 with st.container():
@@ -410,7 +409,7 @@ st.sidebar.header("Ingresa los datos de la propiedad")
 def obtener_datos_usuario():
 
     metros = st.sidebar.number_input("Metros cuadrados", min_value=20, max_value=1000, value=100)
-    banos = st.sidebar.slider("Número de baños", min_value=0, max_value=10, value=2)
+    banos = st.sidebar.slider("Número de baños", min_value=1, max_value=10, value=2)
 
     # Crear un diccionario con los datos
     datos_propiedad = {
