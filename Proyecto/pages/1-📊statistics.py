@@ -25,7 +25,7 @@ st.write(
 st.write("---")
 
 #_____________________________________CONEXION BASE DE DATOS_________________________________________#
-
+df = pd.DataFrame() 
 conn = st.connection("postgresql", type="sql")
 
 #_____________________________________FUNCION CACHÉ_________________________________________#
